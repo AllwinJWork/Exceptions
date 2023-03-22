@@ -1,8 +1,11 @@
 package com.qa.garage;
 
+import java.util.Scanner;
+
 import com.qa.garage.vehicle.Bike;
 import com.qa.garage.vehicle.Boat;
 import com.qa.garage.vehicle.Car;
+import com.qa.garage.vehicle.Vehicle;
 
 public class Runner {
 
@@ -17,8 +20,21 @@ public class Runner {
 		System.out.println(g);
 
 //		g.removeByType("car");
-		g.remove(Car.class);
-		System.out.println(g);
+		for (Vehicle v : g.getArray()) {
+			System.out.println(v.getId());
+		}
+
+		Scanner newScanner = new Scanner(System.in);
+		String userIn = newScanner.nextLine();
+		System.out.println(userIn);
+		newScanner.close();
+
+		try {
+			System.out.println(g.findByID(6));
+		} catch (ExcepetionHandlingGarage e) {
+			System.out.println(e);
+		}
+
 	}
 
 }

@@ -76,4 +76,17 @@ public class Garage {
 		return "Garage [vehicles=" + this.vehicles + "]";
 	}
 
+	public String findByID(int id) throws ExcepetionHandlingGarage {
+
+		for (Vehicle v : vehicles) {
+			if (v.getId() == id)
+				return v.toString();
+		}
+
+		throw new ExcepetionHandlingGarage("Vehicle not found");
+	}
+
+	public List<Vehicle> getArray() {
+		return this.vehicles;
+	}
 }
